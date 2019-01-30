@@ -7,13 +7,16 @@ def parse_args():
     desc = "Tensorflow implementation of UNIT"
     parser = argparse.ArgumentParser(description=desc)
     parser.add_argument('--phase', type=str, default='train', help='train or test ?')
-    parser.add_argument('--dataset', type=str, default='summer2winter', help='dataset_name')
+    parser.add_argument('--dataset', type=str, default='horse2zebra', help='dataset_name')
     parser.add_argument('--augment_flag', type=bool, default=False, help='Image augmentation use or not')
 
     parser.add_argument('--epoch', type=int, default=5, help='The number of epochs to run')
-    parser.add_argument('--iteration', type=int, default=100000, help='The number of training iterations')
+    # Change the number of training step
+    parser.add_argument('--iteration', type=int, default=1000, help='The number of training iterations')
     parser.add_argument('--batch_size', type=int, default=1, help='The batch size')
-    parser.add_argument('--print_freq', type=int, default=1000, help='The number of image_print_freq')
+    # Change log frequency
+    parser.add_argument('--print_freq', type=int, default=10, help='The number of image_print_freq')
+    # Save checkpoint frequency
     parser.add_argument('--save_freq', type=int, default=1000, help='The number of ckpt_save_freq')
 
     parser.add_argument('--lr', type=float, default=0.0001, help='The learning rate')
@@ -35,6 +38,7 @@ def parse_args():
 
     parser.add_argument('--n_dis', type=int, default=6, help='The number of discriminator layer')
 
+    # Change input image size
     parser.add_argument('--img_size', type=int, default=256, help='The size of image')
     parser.add_argument('--img_ch', type=int, default=3, help='The size of image channel')
 
